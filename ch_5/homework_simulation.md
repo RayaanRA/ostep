@@ -23,7 +23,7 @@ A: Yes, whenever `a` forks, it creates a branch.
 > changes? Check your answer with `-c`.
 
 A: A higher fork percentage creates a very big and complex tree. A lower
-fork percentage means that many forks can be created but will likley exit
+fork percentage means that many forks can be created but will likely exit
 immediately, so the tree is always pretty small.
 
 >3. Now, switch the output by using the `-t` flag (e.g., run `./fork.py
