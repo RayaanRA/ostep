@@ -34,11 +34,21 @@ changes show depending on which ran first.
 >try to ensure that the child process always prints first; can you do
 >this without calling `wait()` in the parent?
 
+A: The child process can be ensured to run first with the variations of
+`wait()`. Doing this without `wait()` would be harder and require things
+like condition variables and semaphores.
+
 >4. Write a program that calls `fork()` and then calls some form of
 >`exec()` to run the program `/bin/ls`. See if you can try all of the
 >variants of `exec()`, including (on Linux) `execl()`, `execle()`,
 >`execlp()`, `execv()`, `execvp()`, and `execvpe()`. Why do
 >you think there are so many variants of the same basic call?
+
+A: The man pages describe the difference with the 'l' and 'v' functions
+as how the command-line arguments are specified, where the 'v' functions
+are specified as a vector. Some other differences include how the executable
+is searched, such a scenario being where there the specified filename does not
+contain a slash (/) character (`execlp()`, `execvp()`, `execvpe`).
 
 >5. Now write a program that uses `wait()` to wait for the child process
 >to finish in the parent. What does `wait()` return? What happens if
