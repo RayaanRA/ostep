@@ -13,6 +13,10 @@ thing (e.g., `100`). What value is the variable in the child process?
 What happens to the variable when both the child and parent change
 the value of `x`?
 
+A: The value is the same as it is in the parent process. When both
+the parent and child change the value of x, it seems that they now have
+their own `x` variable.
+
 2. Write a program that opens a file (with the `open()` system call)
 and then calls `fork()` to create a new process. Can both the child
 and parent access the file descriptor returned by `open()`? What
@@ -41,6 +45,7 @@ useful?
 7. Write a program that creates a child process, and then in the child
 closes standard output (`STDOUT_FILENO`). What happens if the child
 calls `printf()` to print some output after closing the descriptor?
+
 8. Write a program that creates two children, and connects the stan-
 dard output of one to the standard input of the other, using the
 `pipe()` system call.
