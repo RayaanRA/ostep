@@ -8,8 +8,8 @@ as much time as you can to write some code, so why not start now?
 Questions
 
 >1. Write a program that calls `fork()`. Before calling `fork()`, have the
->main process access a variable (e.g., `x`) and set its value to some-
->thing (e.g., `100`). What value is the variable in the child process?
+>main process access a variable (e.g., `x`) and set its value to something
+> (e.g., `100`). What value is the variable in the child process?
 >What happens to the variable when both the child and parent change
 >the value of `x`?
 
@@ -54,14 +54,22 @@ contain a slash (/) character (`execlp()`, `execvp()`, `execvpe`).
 >to finish in the parent. What does `wait()` return? What happens if
 >you use `wait()` in the child?
 
->6. Write a slight modification of the previous program, this time us-
->ing `waitpid()` instead of `wait()`. When would `waitpid()` be
+A: `wait()` returns the pid of the terminated child. Using `wait()`in 
+the child returns `-1`.
+
+>6. Write a slight modification of the previous program, this time
+> using `waitpid()` instead of `wait()`. When would `waitpid()` be
 >useful?
+
+A: `waitpid()` could be useful when there are multiple children and the 
+parent only needs to wait for one of them.
 
 >7. Write a program that creates a child process, and then in the child
 >closes standard output (`STDOUT_FILENO`). What happens if the child
 >calls `printf()` to print some output after closing the descriptor?
 
->8. Write a program that creates two children, and connects the stan-
->dard output of one to the standard input of the other, using the
+A: It will not print, since the standard output was closed.
+
+>8. Write a program that creates two children, and connects the
+>standard output of one to the standard input of the other, using the
 >`pipe()` system call.
